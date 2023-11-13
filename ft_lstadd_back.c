@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpihur <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 18:13:48 by mpihur            #+#    #+#             */
-/*   Updated: 2023/11/12 17:20:30 by mpihur           ###   ########.fr       */
+/*   Created: 2023/11/09 13:39:40 by mpihur            #+#    #+#             */
+/*   Updated: 2023/11/09 15:39:26 by mpihur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isprint(int c)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	unsigned char	a;
+	t_list	*temp;
 
-	a = (unsigned char)c;
-	if (a >= 32 && a < 127)
-		return (1);
-	else
-		return (0);
-}
-
-#include <stdio.h>
-#include <limits.h>
-
-int	main(void)
-{
-	printf("%d\n", ft_isprint('f' - INT_MAX));
-	printf("%d\n", ft_isprint(288));
-	printf("%d\n", ft_isprint(128));
-	
-	printf("%d\n", ft_isprint(-1));
-	printf("%d\n", ft_isprint(130));
+	if (!lst || !new)
+		return ;
+	if (!*lst)
+	{
+		*lst = new;
+		return ;
+	}
+	temp = *lst;
+	while (temp->next)
+		temp = temp->next;
+	temp->next = new;
 }

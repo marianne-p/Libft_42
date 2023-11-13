@@ -6,7 +6,7 @@
 /*   By: mpihur <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 20:55:06 by mpihur            #+#    #+#             */
-/*   Updated: 2023/11/04 20:15:00 by mpihur           ###   ########.fr       */
+/*   Updated: 2023/11/11 14:06:13 by mpihur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,32 @@
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*mem;
+	size_t	mult;
 
 	if (size == 0 || nmemb == 0)
-		mem = malloc(1);
-	else if (nmemb > sizeof(size_t) / size)
+		mem = malloc(0);
+	mult = nmemb * size;
+	if (size != 0 && nmemb > ((size_t)(-1)) / size)
 		return (NULL);
-	else
-		mem = malloc(size * nmemb);
+	mem = malloc(size * nmemb);
 	if (mem != NULL)
 		ft_bzero(mem, size * nmemb);
 	return (mem);
 }
+/*
+#include <stdio.h>
+
+int	main (void)
+{
+	char	*res;
+
+	res = (char *)ft_calloc(((size_t)(-1)), 3);
+	if (res == NULL)
+		printf("NULL\n");
+	else 
+		printf("%s\n", res);
+	printf("%zu\n", ((size_t)(-1)));
+	printf("%zu\n", ((size_t)(-1) + 5));
+	printf("%zu\n", ((size_t)(-1) * 3));
+}
+*/

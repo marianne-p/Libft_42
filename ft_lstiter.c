@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpihur <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 18:13:48 by mpihur            #+#    #+#             */
-/*   Updated: 2023/11/12 17:20:30 by mpihur           ###   ########.fr       */
+/*   Created: 2023/11/09 13:49:01 by mpihur            #+#    #+#             */
+/*   Updated: 2023/11/11 20:23:25 by mpihur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isprint(int c)
+void	printer(void	*content)
 {
-	unsigned char	a;
-
-	a = (unsigned char)c;
-	if (a >= 32 && a < 127)
-		return (1);
-	else
-		return (0);
+	write(1, content, ft_strlen(content));
 }
 
-#include <stdio.h>
-#include <limits.h>
+void	ft_lstiter(t_list *lst, void (*f)(void *))
+{
+	if (!lst || !f)
+		return ;
+	while (lst)
+	{
+		f (lst->content);
+		lst = lst->next;
+	}
+}
 
 int	main(void)
 {
-	printf("%d\n", ft_isprint('f' - INT_MAX));
-	printf("%d\n", ft_isprint(288));
-	printf("%d\n", ft_isprint(128));
-	
-	printf("%d\n", ft_isprint(-1));
-	printf("%d\n", ft_isprint(130));
+	t_list	*lst;
+
+	lst->content = "hey\n";
+	lst->next = NULL;
+	ft_lstiter(lst, printer);
 }

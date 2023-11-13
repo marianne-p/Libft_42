@@ -6,7 +6,7 @@
 /*   By: mpihur <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 20:16:46 by mpihur            #+#    #+#             */
-/*   Updated: 2023/11/05 15:11:00 by mpihur           ###   ########.fr       */
+/*   Updated: 2023/11/09 15:46:41 by mpihur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 static char	*check_alloc(int length)
 {
 	char	*res;
-       
+
 	res = (char *)malloc(length);
-	return (res); 
+	return (res);
 }
 
 static void	fill_up(int n, int i, char *res)
@@ -39,25 +39,29 @@ static void	fill_up(int n, int i, char *res)
 	}
 }
 
+static	int	count_len(int length, int n)
+{
+	while (n)
+	{
+		length++;
+		n /= 10;
+	}
+	return (length);
+}
+
 char	*ft_itoa(int n)
 {
 	int		i;
-	int		tmp;
 	int		length;
 	char	*res;
 
-	tmp = n;
 	length = 1;
 	if (n <= 0)
 		length = 2;
-	while (tmp)
-	{
-		length++;
-		tmp /= 10;
-	}
+	length = count_len(length, n);
 	res = check_alloc(length);
-	if (res  == NULL)
-			return (NULL);
+	if (res == NULL)
+		return (NULL);
 	i = length - 1;
 	res[i--] = '\0';
 	if (n == 0)

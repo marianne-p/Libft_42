@@ -6,7 +6,7 @@
 /*   By: mpihur <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 19:31:23 by mpihur            #+#    #+#             */
-/*   Updated: 2023/11/06 13:44:42 by mpihur           ###   ########.fr       */
+/*   Updated: 2023/11/09 15:36:42 by mpihur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memset(void *s, int c, size_t n)
 {
-	size_t		i;
+	size_t			i;
 	unsigned char	*set;
 
 	i = 0;

@@ -6,7 +6,7 @@
 /*   By: mpihur <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 20:05:53 by mpihur            #+#    #+#             */
-/*   Updated: 2023/11/05 14:42:18 by mpihur           ###   ########.fr       */
+/*   Updated: 2023/11/09 15:36:23 by mpihur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,3 @@ int	main(void)
 	printf("%s\n", ft_strchr("asdfgh jkl;źvcv", 'f'));
 	printf("%s\n", ft_strchr("hey hey", 270));
 }*/
-

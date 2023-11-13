@@ -1,32 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpihur <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/03 18:41:24 by mpihur            #+#    #+#             */
-/*   Updated: 2023/11/09 17:34:51 by mpihur           ###   ########.fr       */
+/*   Created: 2023/11/09 13:53:17 by mpihur            #+#    #+#             */
+/*   Updated: 2023/11/09 15:44:34 by mpihur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	size_t	s;
+	t_list	*res;
+	t_list	*new;
 
-	s = 0;
-	while (s < n)
+	if (!lst || !f || !del)
+		return (NULL);
+	new = ft_lstnew (f(lst->content));
+	if (!new)
+		return (NULL);
+	res = new;
+	lst = lst->next;
+	while (lst)
 	{
-		if (s1[s] == s2[s])
+		new->next = ft_lstnew(f(lst->content));
+		if (new->next == NULL)
 		{
-			s++;
+			ft_lstclear(&res, del);
+			return (NULL);
 		}
-		else if (s1[s] > s2[s])
-			return (1);
-		else if (s1[s] < s2[s])
-			return (-1);
+		new = new->next;
+		lst = lst->next;
 	}
-	return (0);
+	new->next = NULL;
+	return (res);
 }
