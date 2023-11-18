@@ -31,7 +31,7 @@ int	ft_atoi(const char *nptr)
 			neg = neg * -1;
 		i++;
 	}
-	if (!((pos + 1 == i && (nptr[pos] == '-' || nptr[pos] == '+'))) || pos != i)
+	if (!(pos + 1 == i && (nptr[pos] == '-' || nptr[pos] == '+')) || pos != i)
 		return (0);
 	while (nptr[i] != '\0' && (nptr[i] >= '0' && nptr[i] <= '9'))
 	{
