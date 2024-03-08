@@ -27,7 +27,7 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 		lst = lst->next;
 	}
 }
-
+/*
 int	main(void)
 {
 	t_list	*lst;
@@ -36,3 +36,4 @@ int	main(void)
 	lst->next = NULL;
 	ft_lstiter(lst, printer);
 }
+*/
