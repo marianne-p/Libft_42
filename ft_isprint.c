@@ -6,7 +6,7 @@
 /*   By: mpihur <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:13:48 by mpihur            #+#    #+#             */
-/*   Updated: 2023/11/12 17:20:30 by mpihur           ###   ########.fr       */
+/*   Updated: 2024/04/03 15:14:23 by mpihur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_isprint(int c)
 	else
 		return (0);
 }
-
+/*
 #include <stdio.h>
 #include <limits.h>
 
@@ -34,4 +34,4 @@ int	main(void)
 	
 	printf("%d\n", ft_isprint(-1));
 	printf("%d\n", ft_isprint(130));
-}
+}*/
