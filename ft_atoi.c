@@ -6,7 +6,7 @@
 /*   By: mpihur <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 20:40:43 by mpihur            #+#    #+#             */
-/*   Updated: 2024/04/03 15:10:29 by mpihur           ###   ########.fr       */
+/*   Updated: 2024/04/06 16:48:28 by mpihur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ long long	ft_atoi(const char *nptr)
 	while (nptr[i] != '\0' && (nptr[i] >= '0' && nptr[i] <= '9'))
 	{
 		if (res > INT_MAX)
-			return (INT_MAX + 1);
+			return (100000000000);
 		res = (res * 10) + (nptr[i] - '0');
 		i++;
 	}
