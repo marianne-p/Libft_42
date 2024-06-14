@@ -6,7 +6,7 @@
 /*   By: mpihur <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 18:35:02 by mpihur            #+#    #+#             */
-/*   Updated: 2023/11/06 11:37:01 by mpihur           ###   ########.fr       */
+/*   Updated: 2024/06/14 15:06:51 by mpihur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ size_t	ft_strlen(const char *str)
 	size_t	i;
 
 	i = 0;
+	if (!str)
+		return (i);
 	while (*(str + i))
 		i++;
 	return (i);
